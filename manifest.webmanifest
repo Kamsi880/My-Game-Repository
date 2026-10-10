@@ -1,0 +1,21 @@
+{
+  "id": "./",
+  "name": "Tiny Kitchen - Cooking Game",
+  "short_name": "Tiny Kitchen",
+  "description": "A cheerful little cooking game. Pick the right ingredients and make every customer smile.",
+  "lang": "en",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff9f0",
+  "theme_color": "#fff9f0",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiny Kitchen</title>
+  <meta name="theme-color" content="#fff9f0">
+  <meta name="description" content="A cheerful little cooking game. Pick the right ingredients and make every customer smile.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Tiny Kitchen">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.CSS">
+  <script src="test.js" defer></script>
+</head>
+<body>
+  <main class="game">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Tiny Kitchen home">
+        <span class="brand-icon" aria-hidden="true">🍳</span>
+        <span>Tiny Kitchen</span>
+      </a>
+      <div class="score-pill">⭐ <span id="score">0</span> points</div>
+    </header>
+
+    <section class="welcome">
+      <p class="eyebrow">YOUR LITTLE LUNCH RUSH</p>
+      <h1>Make something <span>delicious.</span></h1>
+      <p class="welcome-copy">Read the order, pick the right ingredients, and make your customer smile.</p>
+    </section>
+
+    <section class="kitchen" aria-labelledby="order-title">
+      <div class="order-card">
+        <div class="order-icon" aria-hidden="true">🧑‍🍳</div>
+        <div class="order-copy">
+          <p class="eyebrow">NEW CUSTOMER</p>
+          <h2 id="order-title">Loading your first order...</h2>
+          <p id="order-description" class="order-description"></p>
+        </div>
+        <div class="order-progress" id="order-progress" aria-label="Order progress"></div>
+      </div>
+
+      <div class="ingredients-heading">
+        <div>
+          <p class="eyebrow">YOUR COUNTER</p>
+          <h2>Choose your ingredients</h2>
+        </div>
+        <p class="pick-hint">Tap to add · tap again to remove</p>
+      </div>
+
+      <div id="ingredient-list" class="ingredient-list" aria-label="Available ingredients"></div>
+
+      <div class="cook-row">
+        <p id="feedback" class="feedback" aria-live="polite">Choose the ingredients in the order to get started.</p>
+        <button id="cook-button" class="cook-button" type="button">🍽️ Make the dish</button>
+      </div>
+    </section>
+
+    <footer class="tip">
+      <span aria-hidden="true">💡</span>
+      <p><strong>Kitchen tip:</strong> You need the right ingredients—and no extras—to make the perfect dish.</p>
+    </footer>
+  </main>
+</body>
+</html>

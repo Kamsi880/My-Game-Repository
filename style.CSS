@@ -1,0 +1,433 @@
+:root {
+  color-scheme: light;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: #302c3d;
+  background: #fff9f0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #302c3d;
+  --muted: #777384;
+  --pink: #ed7587;
+  --pink-dark: #d95d73;
+  --cream: #fff9f0;
+  --card: #ffffff;
+  --line: #f0e9e3;
+  --green: #4e9c75;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 7% 17%, #ffebd6 0, transparent 28rem),
+    radial-gradient(ellipse at 96% 70%, #fce3e9 0, transparent 26rem),
+    var(--cream);
+}
+
+button {
+  font: inherit;
+}
+
+.game {
+  width: min(100% - 40px, 920px);
+  margin: 0 auto;
+  padding: 28px 0 36px;
+}
+
+.topbar,
+.brand,
+.score-pill,
+.order-card,
+.ingredients-heading,
+.cook-row,
+.tip {
+  display: flex;
+  align-items: center;
+}
+
+.topbar {
+  justify-content: space-between;
+}
+
+.brand {
+  gap: 10px;
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid #f5e7df;
+  border-radius: 14px;
+  background: white;
+  font-size: 22px;
+}
+
+.score-pill {
+  gap: 6px;
+  padding: 10px 15px;
+  border: 1px solid #f3e5c7;
+  border-radius: 999px;
+  background: #fff3d5;
+  color: #755b20;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.welcome {
+  padding: 54px 0 30px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--pink-dark);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: clamp(32px, 6vw, 48px);
+  letter-spacing: -1.8px;
+}
+
+h1 span {
+  color: var(--pink);
+}
+
+.welcome-copy {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.kitchen {
+  padding: 24px;
+  border: 1px solid #f1e8e1;
+  border-radius: 24px;
+  background: rgb(255 255 255 / 90%);
+  box-shadow: 0 18px 55px rgb(87 63 71 / 8%);
+}
+
+.order-card {
+  gap: 16px;
+  min-height: 112px;
+  padding: 18px;
+  border: 1px solid #f9dce0;
+  border-radius: 18px;
+  background: #fff3f3;
+}
+
+.order-icon {
+  display: grid;
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 17px;
+  background: white;
+  font-size: 32px;
+}
+
+.order-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.order-copy .eyebrow {
+  margin-bottom: 4px;
+}
+
+.order-copy h2,
+.ingredients-heading h2 {
+  margin-bottom: 4px;
+  font-size: 18px;
+}
+
+.order-description {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.order-progress {
+  display: flex;
+  gap: 6px;
+  align-self: flex-start;
+  padding-top: 4px;
+}
+
+.progress-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e5d8d4;
+}
+
+.progress-dot.done {
+  background: var(--green);
+}
+
+.progress-dot.current {
+  background: var(--pink);
+  box-shadow: 0 0 0 3px #f8d8dd;
+}
+
+.ingredients-heading {
+  justify-content: space-between;
+  gap: 16px;
+  margin: 28px 0 15px;
+}
+
+.ingredients-heading .eyebrow {
+  margin-bottom: 5px;
+}
+
+.ingredients-heading h2 {
+  margin: 0;
+}
+
+.pick-hint {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ingredient-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ingredient {
+  position: relative;
+  display: flex;
+  min-height: 112px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: white;
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.ingredient:hover {
+  transform: translateY(-2px);
+  border-color: #f3b3bc;
+}
+
+.ingredient:focus-visible,
+.cook-button:focus-visible {
+  outline: 3px solid #f4aab6;
+  outline-offset: 3px;
+}
+
+.ingredient.selected {
+  border-color: var(--pink);
+  background: #fff0f2;
+  box-shadow: inset 0 0 0 1px var(--pink);
+}
+
+.ingredient.selected::after {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  display: grid;
+  width: 19px;
+  height: 19px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--pink);
+  color: white;
+  content: "✓";
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ingredient:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+
+.ingredient-emoji {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.ingredient-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cook-row {
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 62px;
+  margin-top: 19px;
+}
+
+.feedback {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.feedback.success {
+  color: #347d59;
+  font-weight: 700;
+}
+
+.feedback.try-again {
+  color: #bd5362;
+  font-weight: 700;
+}
+
+.cook-button {
+  flex: 0 0 auto;
+  padding: 13px 19px;
+  border: 0;
+  border-radius: 13px;
+  background: var(--pink);
+  box-shadow: 0 5px 0 #d95d73;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.cook-button:hover {
+  background: var(--pink-dark);
+  transform: translateY(-1px);
+}
+
+.cook-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #d95d73;
+}
+
+.cook-button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.tip {
+  gap: 10px;
+  margin: 18px 4px 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.tip span {
+  font-size: 18px;
+}
+
+.tip p {
+  margin: 0;
+}
+
+.tip strong {
+  color: var(--ink);
+}
+
+@media (max-width: 620px) {
+  .game {
+    width: min(100% - 28px, 480px);
+    padding-top: 18px;
+  }
+
+  .welcome {
+    padding: 40px 4px 24px;
+  }
+
+  .kitchen {
+    padding: 15px;
+    border-radius: 19px;
+  }
+
+  .order-card {
+    gap: 11px;
+    padding: 13px;
+  }
+
+  .order-icon {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+    font-size: 26px;
+  }
+
+  .order-progress {
+    gap: 4px;
+  }
+
+  .progress-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .ingredient-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .ingredient {
+    min-height: 96px;
+  }
+
+  .ingredients-heading {
+    align-items: flex-start;
+  }
+
+  .pick-hint {
+    max-width: 110px;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .cook-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 4px;
+  }
+
+  .cook-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
